@@ -5,52 +5,7 @@ const Referral = () => {
     return(
     <>
       <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg bg-dark">
-            <div className="container-fluid">
-            {/* <Link className="navbar-brand" to="/index.html">
-                            <img src="img/smithLogo.png" className="img-fluid" />
-                        </Link> */}
-            <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                <li className="nav-item">
-                    <Link
-                    className="nav-link active"
-                    aria-current="page"
-                    to="/SC_Dashboard/sc-dashboard.html"
-                    >My Dashboard</Link
-                    >
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/SC_Inbox/sc-inbox.html">Inbox</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/SC_Calendar/sc-calendar.html"
-                    >Calendar</Link
-                    >
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/Report/sc-report.html">Report</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/referral.html"
-                    >New Case</Link
-                    >
-                </li>
-                </ul>
-            </div>
-            </div>
-        </nav>
+        <Navbar />
         <form id="referralForm">
             <section id="childInfo">
             <div className="row">
@@ -809,11 +764,7 @@ const Referral = () => {
         
         </div>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"
-        ></script>
+        
     </>
     );
 };

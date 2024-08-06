@@ -1,0 +1,43 @@
+:root {
+    --haiti: #0b132b;
+    --cloudBurst: #1c2541;
+    --fiord: #3a506b;
+    --fountainBlue: #5bc0be;
+    --darkFountainBlue: #407a79;
+}
+.navbar-brand img {
+    height: 50px;
+}
+.navbar {
+    padding-left: 5px;
+    padding-bottom: 0px;
+    background-color: var(--cloudBurst) !important;
+    .navbar-nav {
+        margin-right: auto;
+    }
+}
+
+nav {
+    font-size: 23px;
+    a {
+        color: var(--cloudBurst) !important;
+        padding-left: 10px !important;
+        font-size: 20px !important;
+    }
+    .navbar-toggler,
+    .navbar-toggler-icon-bg {
+        color: var(--fiord) !important;
+    }
+    button {
+        margin-left: 10px;
+        background-color: var(--fiord) !important;
+    }
+}
+a.nav-link {
+    background-color: white;
+    margin-right: 3px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}

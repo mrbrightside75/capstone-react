@@ -5,6 +5,8 @@ import "./App.css";
 import Login from "./Pages/Login/Login";
 import LoginReset from "./Pages/Login/LoginReset";
 import Dashboard from "./Pages/SC_Dashboard/Dashboard";
+import Case from "./Pages/SC_Case/Case"
+import Inbox from "./Pages/SC_Inbox/Inbox";
 
 
 // #3 Set up routes that connect paths to elements, combined they make a route
@@ -21,6 +23,14 @@ const myRoutes = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/inbox",
+    element: <Inbox />,
+  },
+  {
+    path: "/case",
+    element: <Case />,
   },
 ]);
 

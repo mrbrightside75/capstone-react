@@ -42,7 +42,7 @@ const Login = () => {
                     className="col d-flex justify-content-center"
                     id="loginButton"
                   >
-                    <Link to="/Pages/SC_Dashboard/dashboard.js" className="btn btn-custom">
+                    <Link to="/dashboard" className="btn btn-custom">
                       LOGIN
                     </Link>
                   </div>

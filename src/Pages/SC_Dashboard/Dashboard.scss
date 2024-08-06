@@ -1,0 +1,52 @@
+:root {
+    --haiti: #0b132b;
+    --cloudBurst: #1c2541;
+    --fiord: #3a506b;
+    --fountainBlue: #5bc0be;
+    --darkFountainBlue: #407a79;
+  }
+  .container-fluid {
+    padding: 0px;
+    background-color: var(--fiord);
+  }
+  
+  header {
+    padding: 5px;
+    margin-top: 15px;
+    color: white;
+    font-weight: bold;
+  }
+  #content {
+    padding: 18px;
+  }
+  #demographicMenu {
+    padding: 5px;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+  #caseSearch {
+    width: 75%;
+  }
+  .material-symbols-outlined {
+    margin: auto;
+  }
+  .whiteWindow {
+    background-color: white;
+    .folderIcon {
+      text-align: center;
+      font-size: 150px;
+      margin-bottom: 0%;
+      a {
+        text-decoration: none;
+      }
+    }
+    .folderIcon :hover {
+      font-size: 180px;
+    }
+    .name {
+      text-align: center;
+      font-weight: bold;
+      font-size: 40px;
+    }
+  }
+  
