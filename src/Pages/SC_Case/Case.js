@@ -102,7 +102,7 @@ const Case = () => {
           </div>
         </div>
         <div className="col-8" id="caseMenu">
-          <Link to="/SC_Case/case-ifsp.html">
+          <Link to="/case-ifsp">
             <div className="row caseMenuItem">
               <div className="col">
                 <h2>Individual Family Service Plan</h2>

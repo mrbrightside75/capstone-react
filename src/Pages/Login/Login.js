@@ -18,7 +18,7 @@ const Login = () => {
               <form>
                 <div className="row">
                   <header className="text-align-center">
-                    <h1>User Login</h1>
+                    <h1 >User Login</h1>
                     <hr />
                   </header>
                   {/* end of header row */}

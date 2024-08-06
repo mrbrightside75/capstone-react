@@ -7,7 +7,7 @@ import LoginReset from "./Pages/Login/LoginReset";
 import Dashboard from "./Pages/SC_Dashboard/Dashboard";
 import Case from "./Pages/SC_Case/Case"
 import Inbox from "./Pages/SC_Inbox/Inbox";
-
+import Case_IFSP from "./Pages/SC_Case/Case_IFSP";
 
 // #3 Set up routes that connect paths to elements, combined they make a route
 //which makes them their own page accessible in the browswer.
@@ -31,6 +31,10 @@ const myRoutes = createBrowserRouter([
   {
     path: "/case",
     element: <Case />,
+  },
+  {
+    path: "/case-ifsp",
+    element: <Case_IFSP />,
   },
 ]);
 
