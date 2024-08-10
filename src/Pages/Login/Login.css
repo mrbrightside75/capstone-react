@@ -6,6 +6,7 @@
     --darkFountainBlue: #407a79;
   }
   body {
+    min-height: 100vh;
     background-color: var(--fiord);
     color: var(--fiord);
   }
