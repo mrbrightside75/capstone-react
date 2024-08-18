@@ -20,22 +20,13 @@ const Navbar = () => {
 							<Link
 								className="nav-link active"
 								aria-current="page"
-								to="/SC_Dashboard/sc-dashboard.html">
+								to="/dashboard">
 								My Dashboard
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link
-								className="nav-link"
-								to="/SC_Inbox/sc-inbox.html">
+							<Link className="nav-link" to="/inbox">
 								Inbox
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link
-								className="nav-link"
-								to="/SC_Calendar/sc-calendar.html">
-								Calendar
 							</Link>
 						</li>
 						<li className="nav-item">
@@ -46,12 +37,12 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/referral.html">
+							<Link className="nav-link" to="/referral">
 								New Case
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/demographics.html">
+							<Link className="nav-link" to="/demographics">
 								Demographics
 							</Link>
 						</li>

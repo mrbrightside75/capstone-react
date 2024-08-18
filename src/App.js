@@ -41,6 +41,14 @@ const myRoutes = createBrowserRouter([
 		path: "/createAccount",
 		element: <CreateAccount />,
 	},
+	// {
+	// 	path: "/referral",
+	// 	element: <Referral />,
+	// },
+	{
+		path: "/inbox",
+		element: <Inbox />,
+	},
 ]);
 
 function App() {
