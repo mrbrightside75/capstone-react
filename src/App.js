@@ -9,6 +9,8 @@ import Case from "./Pages/SC_Case/Case";
 import Inbox from "./Pages/SC_Inbox/Inbox";
 import Case_IFSP from "./Pages/SC_Case/Case_IFSP";
 import CreateAccount from "./Pages/Login/CreateAccount";
+import Referral from "./Pages/Referral/Referral";
+import Demographics from "./Demographics";
 
 // #3 Set up routes that connect paths to elements, combined they make a route
 //which makes them their own page accessible in the browswer.
@@ -41,13 +43,17 @@ const myRoutes = createBrowserRouter([
 		path: "/createAccount",
 		element: <CreateAccount />,
 	},
-	// {
-	// 	path: "/referral",
-	// 	element: <Referral />,
-	// },
+	{
+		path: "/referral",
+		element: <Referral />,
+	},
 	{
 		path: "/inbox",
 		element: <Inbox />,
+	},
+	{
+		path: "/demographics",
+		element: <Demographics />,
 	},
 ]);
 

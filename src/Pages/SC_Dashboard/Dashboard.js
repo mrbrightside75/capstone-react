@@ -1,21 +1,29 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Dashboard.scss";
 import Navbar from "../../Components/Navbar";
+
 const Dashboard = () => {
-	const cases = [
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-		"Smith, John",
-	];
+	const [cases, setCases] = useState([]);
+
+	// Fetch cases from the backend when the component mounts
+	useEffect(() => {
+		const fetchCases = async () => {
+			try {
+				const response = await fetch("http://localhost:3001/cases");
+				if (response.ok) {
+					const data = await response.json();
+					setCases(data);
+				} else {
+					console.error("Failed to fetch cases");
+				}
+			} catch (error) {
+				console.error("Error fetching cases:", error);
+			}
+		};
+
+		fetchCases();
+	}, []);
 
 	return (
 		<div className="container-fluid">
@@ -50,28 +58,31 @@ const Dashboard = () => {
 					</div>
 				</div>
 			</header>
-			{cases.slice(0, 6).map((caseName, index) => (
-				<div className="row whiteWindow" key={index}>
-					{cases
-						.slice(index * 6, (index + 1) * 6)
-						.map((caseName, subIndex) => (
-							<div className="col-2" key={subIndex}>
-								<div className="row">
-									<div className="col folderIcon">
-										<p>
-											<Link to="/Case">📁</Link>
-										</p>
-									</div>
-								</div>
-								<div className="row">
-									<div className="col">
-										<p className="name">{caseName}</p>
-									</div>
+			{cases.length > 0 ? (
+				<div className="row whiteWindow">
+					{cases.map((caseItem, index) => (
+						<div className="col-2" key={index}>
+							<div className="row">
+								<div className="col folderIcon">
+									<p>
+										<Link to={`/Case`}>📁</Link>
+									</p>
 								</div>
 							</div>
-						))}
+							<div className="row">
+								<div className="col">
+									<p className="name">
+										{caseItem.firstname},{" "}
+										{caseItem.lastname}
+									</p>
+								</div>
+							</div>
+						</div>
+					))}
 				</div>
-			))}
+			) : (
+				<p>No cases available.</p>
+			)}
 		</div>
 	);
 };

@@ -1,0 +1,21 @@
+:root {
+	--haiti: #0b132b;
+	--cloudBurst: #1c2541;
+	--fiord: #3a506b;
+	--fountainBlue: #5bc0be;
+	--darkFountainBlue: #407a79;
+}
+
+.whiteBox {
+	background-color: white !important;
+	margin: 30px;
+	margin-left: 100px;
+	margin-right: 100px;
+	border-radius: 7px;
+}
+h1,
+h2,
+h3,
+p {
+	color: var(--cloudBurst);
+}

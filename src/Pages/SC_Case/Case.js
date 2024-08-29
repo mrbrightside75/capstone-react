@@ -1,8 +1,32 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar";
 import "./Case.css";
 
 const Case = () => {
+	const { id } = useParams(); // Get the case ID from the URL
+	const [caseData, setCaseData] = useState(null);
+
+	// Fetch case data when the component mounts
+	useEffect(() => {
+		const fetchCaseData = async () => {
+			try {
+				const response = await fetch(
+					`http://localhost:3001/cases/${id}`
+				);
+				if (response.ok) {
+					const data = await response.json();
+					setCaseData(data);
+				} else {
+					console.error("Failed to fetch case data");
+				}
+			} catch (error) {
+				console.error("Error fetching case data:", error);
+			}
+		};
+
+		fetchCaseData();
+	}, [id]);
 	return (
 		<div className="container-fluid">
 			<Navbar />
