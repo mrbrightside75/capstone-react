@@ -4,19 +4,30 @@ import { useState } from "react";
 const NewChild = () => {
 	const navigate = useNavigate();
 
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [dob, setDob] = useState("");
+	const [childInfo, setChildInfo] = useState({
+		firstName: "",
+		middleName: "",
+		lastName: "",
+		prefix: "",
+		suffix: "",
+		dob: "",
+		gestationalAge: "",
+		ethnicity: "",
+		race: "",
+		address: "",
+		language: "",
+		schoolDistrict: "",
+	});
+
+	const handleChange = (e) => {
+		setChildInfo({
+			...childInfo,
+			[e.target.name]: e.target.value,
+		});
+	};
 
 	const createChild = async (event) => {
 		event.preventDefault();
-		const form = event.target;
-
-		const child = {
-			firstname: form.elements.firstNameInput.value,
-			lastname: form.elements.lastNameInput.value,
-			dateofbirth: form.elements.dobInput.value,
-		};
 
 		try {
 			const response = await fetch(`http://localhost:3001/cases`, {
@@ -24,14 +35,12 @@ const NewChild = () => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(child),
+				body: JSON.stringify(childInfo),
 			});
 
 			if (response.ok) {
-				// Redirect or give feedback to the user
 				navigate("/");
 			} else {
-				// Handle error
 				console.error("Failed to create a new case.");
 			}
 		} catch (error) {
@@ -44,48 +53,172 @@ const NewChild = () => {
 			<h1>Add New Child</h1>
 			<hr />
 			<form onSubmit={createChild}>
+				{/* First Name */}
 				<div className="mb-3">
-					<label htmlFor="firstNameInput" className="form-label">
+					<label htmlFor="firstName" className="form-label">
 						First Name
 					</label>
 					<input
 						type="text"
 						className="form-control"
-						id="firstNameInput"
-						placeholder="Child's First Name"
-						value={firstName}
-						onChange={(evt) => {
-							setFirstName(evt.target.value);
-						}}
+						id="firstName"
+						name="firstName"
+						value={childInfo.firstName}
+						onChange={handleChange}
 					/>
 				</div>
+				{/* Middle Name */}
 				<div className="mb-3">
-					<label htmlFor="lastNameInput" className="form-label">
+					<label htmlFor="middleName" className="form-label">
+						Middle Name
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="middleName"
+						name="middleName"
+						value={childInfo.middleName}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* Last Name */}
+				<div className="mb-3">
+					<label htmlFor="lastName" className="form-label">
 						Last Name
 					</label>
 					<input
 						type="text"
 						className="form-control"
-						id="lastNameInput"
-						placeholder="Child's Last Name"
-						value={lastName}
-						onChange={(evt) => {
-							setLastName(evt.target.value);
-						}}
+						id="lastName"
+						name="lastName"
+						value={childInfo.lastName}
+						onChange={handleChange}
 					/>
 				</div>
+				{/* Prefix */}
 				<div className="mb-3">
-					<label htmlFor="dobInput" className="form-label">
+					<label htmlFor="prefix" className="form-label">
+						Prefix
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="prefix"
+						name="prefix"
+						value={childInfo.prefix}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* Suffix */}
+				<div className="mb-3">
+					<label htmlFor="suffix" className="form-label">
+						Suffix
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="suffix"
+						name="suffix"
+						value={childInfo.suffix}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* DOB */}
+				<div className="mb-3">
+					<label htmlFor="dob" className="form-label">
 						Date of Birth
 					</label>
 					<input
 						type="date"
 						className="form-control"
-						id="dobInput"
-						value={dob}
-						onChange={(evt) => {
-							setDob(evt.target.value);
-						}}
+						id="dob"
+						name="dob"
+						value={childInfo.dob}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* Gestational Age */}
+				<div className="mb-3">
+					<label htmlFor="gestationalAge" className="form-label">
+						Gestational Age (in weeks)
+					</label>
+					<input
+						type="number"
+						className="form-control"
+						id="gestationalAge"
+						name="gestationalAge"
+						value={childInfo.gestationalAge}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* Ethnicity */}
+				<div className="mb-3">
+					<label htmlFor="ethnicity" className="form-label">
+						Ethnicity (U.S. Federally Recognized)
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="ethnicity"
+						name="ethnicity"
+						value={childInfo.ethnicity}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* Race */}
+				<div className="mb-3">
+					<label htmlFor="race" className="form-label">
+						Race (U.S. Federally Recognized)
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="race"
+						name="race"
+						value={childInfo.race}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* Address */}
+				<div className="mb-3">
+					<label htmlFor="address" className="form-label">
+						Child Address
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="address"
+						name="address"
+						value={childInfo.address}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* Language */}
+				<div className="mb-3">
+					<label htmlFor="language" className="form-label">
+						Child Language (U.S. Federally Recognized)
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="language"
+						name="language"
+						value={childInfo.language}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* School District */}
+				<div className="mb-3">
+					<label htmlFor="schoolDistrict" className="form-label">
+						School District (Onondaga County)
+					</label>
+					<input
+						type="text"
+						className="form-control"
+						id="schoolDistrict"
+						name="schoolDistrict"
+						value={childInfo.schoolDistrict}
+						onChange={handleChange}
 					/>
 				</div>
 				<button type="submit" className="btn btn-success">
