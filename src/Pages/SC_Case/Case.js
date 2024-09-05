@@ -74,7 +74,7 @@ const Case = () => {
 							</div>
 						</div>
 					</Link>
-					<Link to="/SC_Case/case-eval.html">
+					<Link to="/case-evaluation">
 						<div className="row caseMenuItem">
 							<div className="col">
 								<h3>Evaluation</h3>
@@ -86,7 +86,7 @@ const Case = () => {
 							</div>
 						</div>
 					</Link>
-					<Link to="/SC_Case/case-sc-notes.html">
+					<Link to="/case-sc-notes">
 						<div className="row caseMenuItem">
 							<div className="col">
 								<h3>Service Coordinator Notes</h3>
@@ -98,7 +98,7 @@ const Case = () => {
 							</div>
 						</div>
 					</Link>
-					<Link to="/SC_Case/case-records.html">
+					<Link to="/case-records">
 						<div className="row caseMenuItem">
 							<div className="col">
 								<h3>Records</h3>
@@ -110,7 +110,7 @@ const Case = () => {
 							</div>
 						</div>
 					</Link>
-					<Link to="/SC_Case/case-consents.html">
+					<Link to="/case-consents-auths">
 						<div className="row caseMenuItem">
 							<div className="col">
 								<h3>Consents & Authorizations</h3>
@@ -122,7 +122,7 @@ const Case = () => {
 							</div>
 						</div>
 					</Link>
-					<Link to="/SC_Case/case-billing-insurance.html">
+					<Link to="/case-bill-insurance">
 						<div className="row caseMenuItem">
 							<div className="col">
 								<h3>Billing & Insurance</h3>
@@ -134,7 +134,7 @@ const Case = () => {
 							</div>
 						</div>
 					</Link>
-					<Link to="/SC_Case/case-travel.html">
+					<Link to="/case-travel">
 						<div className="row caseMenuItem">
 							<div className="col">
 								<h3>Travel</h3>
@@ -146,7 +146,7 @@ const Case = () => {
 							</div>
 						</div>
 					</Link>
-					<Link to="/SC_Case/case-transition.html">
+					<Link to="/case-cpse-transition">
 						<div className="row caseMenuItem">
 							<div className="col">
 								<h3>CPSE Transition</h3>

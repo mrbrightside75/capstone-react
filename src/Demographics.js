@@ -8,18 +8,18 @@ const NewChild = () => {
 	const navigate = useNavigate();
 
 	const [childInfo, setChildInfo] = useState({
-		firstName: "",
-		middleName: "",
-		lastName: "",
+		firstname: "",
+		// middleName: "",
+		lastname: "",
 		prefix: "",
 		suffix: "",
-		dob: "",
-		gestationalAge: "",
+		dateofbirth: "",
+		gestationalage: "",
 		ethnicity: "",
 		race: "",
 		address: "",
 		language: "",
-		schoolDistrict: "",
+		schooldistrict: "",
 	});
 
 	const handleChange = (e) => {
@@ -27,6 +27,7 @@ const NewChild = () => {
 			...childInfo,
 			[e.target.name]: e.target.value,
 		});
+		// console.log(childInfo);
 	};
 
 	const createChild = async (event) => {
@@ -60,20 +61,20 @@ const NewChild = () => {
 				<form onSubmit={createChild}>
 					{/* First Name */}
 					<div className="mb-3">
-						<label htmlFor="firstName" className="form-label">
+						<label htmlFor="firstname" className="form-label">
 							First Name
 						</label>
 						<input
 							type="text"
 							className="form-control"
-							id="firstName"
-							name="firstName"
-							value={childInfo.firstName}
+							id="firstname"
+							name="firstname"
+							value={childInfo.firstname}
 							onChange={handleChange}
 						/>
 					</div>
 					{/* Middle Name */}
-					<div className="mb-3">
+					{/* <div className="mb-3">
 						<label htmlFor="middleName" className="form-label">
 							Middle Name
 						</label>
@@ -85,18 +86,18 @@ const NewChild = () => {
 							value={childInfo.middleName}
 							onChange={handleChange}
 						/>
-					</div>
+					</div> */}
 					{/* Last Name */}
 					<div className="mb-3">
-						<label htmlFor="lastName" className="form-label">
+						<label htmlFor="lastname" className="form-label">
 							Last Name
 						</label>
 						<input
 							type="text"
 							className="form-control"
-							id="lastName"
-							name="lastName"
-							value={childInfo.lastName}
+							id="lastname"
+							name="lastname"
+							value={childInfo.lastname}
 							onChange={handleChange}
 						/>
 					</div>
@@ -170,82 +171,83 @@ const NewChild = () => {
 					</div>
 					{/* DOB */}
 					<div className="mb-3">
-						<label htmlFor="dob" className="form-label">
+						<label htmlFor="dateofbirth" className="form-label">
 							Date of Birth
 						</label>
 						<input
 							type="date"
 							className="form-control"
-							id="dob"
-							name="dob"
-							value={childInfo.dob}
+							id="dateofbirth"
+							name="dateofbirth"
+							value={childInfo.dateofbirth}
 							onChange={handleChange}
 						/>
 					</div>
 					{/* Gestational Age */}
 					<div className="mb-3">
-						<label htmlFor="gestationalAge" className="form-label">
+						<label htmlFor="gestationalage" className="form-label">
 							Gestational Age (in weeks)
 						</label>
 						{/* <input
 						type="number"
 						className="form-control"
-						id="gestationalAge"
-						name="gestationalAge"
-						value={childInfo.gestationalAge}
+						id="gestationalage"
+						name="gestationalage"
+						value={childInfo.gestationalage}
 						onChange={handleChange}
 					/> */}
 						<select
 							className="form-control"
-							id="gestationalAge"
-							name="gestationalAge"
-							value={childInfo.gestationalAge}
+							id="gestationalage"
+							name="gestationalage"
+							value={childInfo.gestationalage}
 							onChange={handleChange}>
 							<option value="">
 								-- Select gestational age --
 							</option>
-							<option value="1">1 week</option>
-							<option value="2">2 weeks</option>
-							<option value="3">3 weeks</option>
-							<option value="4">4 weeks</option>
-							<option value="5">5 weeks</option>
-							<option value="6">6 weeks</option>
-							<option value="7">7 weeks</option>
-							<option value="8">8 weeks</option>
-							<option value="9">9 weeks</option>
-							<option value="10">10 weeks</option>
-							<option value="11">11 weeks</option>
-							<option value="12">12 weeks</option>
-							<option value="13">13 weeks</option>
-							<option value="14">14 weeks</option>
-							<option value="15">15 weeks</option>
-							<option value="16">16 weeks</option>
-							<option value="17">17 weeks</option>
-							<option value="18">18 weeks</option>
-							<option value="19">19 weeks</option>
-							<option value="20">20 weeks</option>
-							<option value="21">21 weeks</option>
-							<option value="22">22 weeks</option>
-							<option value="23">23 weeks</option>
-							<option value="24">24 weeks</option>
-							<option value="25">25 weeks</option>
-							<option value="26">26 weeks</option>
-							<option value="27">27 weeks</option>
-							<option value="28">28 weeks</option>
-							<option value="29">29 weeks</option>
-							<option value="30">30 weeks</option>
-							<option value="31">31 weeks</option>
-							<option value="32">32 weeks</option>
-							<option value="33">33 weeks</option>
-							<option value="34">34 weeks</option>
-							<option value="35">35 weeks</option>
-							<option value="36">36 weeks</option>
-							<option value="37">37 weeks</option>
-							<option value="38">38 weeks</option>
-							<option value="39">39 weeks</option>
-							<option value="40">40 weeks</option>
-							<option value="41">41 weeks</option>
-							<option value="42">42 weeks</option>
+
+							<option value="1 weeks">1 week</option>
+							<option value="2 weeks">2 weeks</option>
+							<option value="3 weeks">3 weeks</option>
+							<option value="4 weeks">4 weeks</option>
+							<option value="5 weeks">5 weeks</option>
+							<option value="6 weeks">6 weeks</option>
+							<option value="7 weeks">7 weeks</option>
+							<option value="8 weeks">8 weeks</option>
+							<option value="9 weeks">9 weeks</option>
+							<option value="10 weeks">10 weeks</option>
+							<option value="11 weeks">11 weeks</option>
+							<option value="12 weeks">12 weeks</option>
+							<option value="13 weeks">13 weeks</option>
+							<option value="14 weeks">14 weeks</option>
+							<option value="15 weeks">15 weeks</option>
+							<option value="16 weeks">16 weeks</option>
+							<option value="17 weeks">17 weeks</option>
+							<option value="18 weeks">18 weeks</option>
+							<option value="19 weeks">19 weeks</option>
+							<option value="20 weeks">20 weeks</option>
+							<option value="21 weeks">21 weeks</option>
+							<option value="22 weeks">22 weeks</option>
+							<option value="23 weeks">23 weeks</option>
+							<option value="24 weeks">24 weeks</option>
+							<option value="25 weeks">25 weeks</option>
+							<option value="26 weeks">26 weeks</option>
+							<option value="27 weeks">27 weeks</option>
+							<option value="28 weeks">28 weeks</option>
+							<option value="29 weeks">29 weeks</option>
+							<option value="30 weeks">30 weeks</option>
+							<option value="31 weeks">31 weeks</option>
+							<option value="32 weeks">32 weeks</option>
+							<option value="33 weeks">33 weeks</option>
+							<option value="34 weeks">34 weeks</option>
+							<option value="35 weeks">35 weeks</option>
+							<option value="36 weeks">36 weeks</option>
+							<option value="37 weeks">37 weeks</option>
+							<option value="38 weeks">38 weeks</option>
+							<option value="39 weeks">39 weeks</option>
+							<option value="40 weeks">40 weeks</option>
+							<option value="41 weeks">41 weeks</option>
+							<option value="42 weeks">42 weeks</option>
 						</select>
 					</div>
 					{/* Ethnicity */}
@@ -379,7 +381,7 @@ const NewChild = () => {
 					</div>
 					{/* School District */}
 					<div className="mb-3">
-						<label htmlFor="schoolDistrict" className="form-label">
+						<label htmlFor="schooldistrict" className="form-label">
 							School District (Onondaga County)
 						</label>
 						{/* <input
@@ -392,9 +394,9 @@ const NewChild = () => {
 					/> */}
 						<select
 							className="form-control"
-							id="schoolDistrict"
-							name="schoolDistrict"
-							value={childInfo.schoolDistrict}
+							id="schooldistrict"
+							name="schooldistrict"
+							value={childInfo.schooldistrict}
 							onChange={handleChange}>
 							<option value="">
 								-- Select a school district --
