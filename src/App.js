@@ -32,7 +32,7 @@ const myRoutes = createBrowserRouter([
 		element: <Inbox />,
 	},
 	{
-		path: "/case",
+		path: "/case/:id/:animal",
 		element: <Case />,
 	},
 	{

@@ -80,3 +80,7 @@ header {
 .caseMenuItem:hover .arrow-icon {
 	display: inline-block; /* Show the icon on hover */
 }
+label {
+	color: white;
+	padding-right: 7px;
+}

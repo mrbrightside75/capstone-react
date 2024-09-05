@@ -22,58 +22,60 @@ const CreateAccount = () => {
 	};
 
 	return (
-		<div className="container">
+		<>
 			<Navbar />
-			<div className="row justify-content-md-center">
-				<div className="col-md-6">
-					<h2>Create Account</h2>
-					<form onSubmit={handleSubmit}>
-						<div className="form-group">
-							<label htmlFor="formUsername">Username</label>
-							<input
-								type="text"
-								className="form-control"
-								id="formUsername"
-								name="username"
-								value={formData.username}
-								onChange={handleChange}
-								placeholder="Enter username"
-							/>
-						</div>
+			<div className="container">
+				<div className="row justify-content-md-center">
+					<div className="col-md-6">
+						<h2>Create Account</h2>
+						<form onSubmit={handleSubmit}>
+							<div className="form-group">
+								<label htmlFor="formUsername">Username</label>
+								<input
+									type="text"
+									className="form-control"
+									id="formUsername"
+									name="username"
+									value={formData.username}
+									onChange={handleChange}
+									placeholder="Enter username"
+								/>
+							</div>
 
-						<div className="form-group">
-							<label htmlFor="formEmail">Email address</label>
-							<input
-								type="email"
-								className="form-control"
-								id="formEmail"
-								name="email"
-								value={formData.email}
-								onChange={handleChange}
-								placeholder="Enter email"
-							/>
-						</div>
+							<div className="form-group">
+								<label htmlFor="formEmail">Email address</label>
+								<input
+									type="email"
+									className="form-control"
+									id="formEmail"
+									name="email"
+									value={formData.email}
+									onChange={handleChange}
+									placeholder="Enter email"
+								/>
+							</div>
 
-						<div className="form-group">
-							<label htmlFor="formPassword">Password</label>
-							<input
-								type="password"
-								className="form-control"
-								id="formPassword"
-								name="password"
-								value={formData.password}
-								onChange={handleChange}
-								placeholder="Password"
-							/>
-						</div>
+							<div className="form-group">
+								<label htmlFor="formPassword">Password</label>
+								<input
+									type="password"
+									className="form-control"
+									id="formPassword"
+									name="password"
+									value={formData.password}
+									onChange={handleChange}
+									placeholder="Password"
+								/>
+							</div>
 
-						<button type="submit" className="btn btn-primary">
-							Create Account
-						</button>
-					</form>
+							<button type="submit" className="btn btn-primary">
+								Create Account
+							</button>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

@@ -17,6 +17,11 @@ const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item">
+							<Link className="nav-link" to="/">
+								Home
+							</Link>
+						</li>
+						<li className="nav-item">
 							<Link
 								className="nav-link active"
 								aria-current="page"
@@ -24,23 +29,23 @@ const Navbar = () => {
 								My Dashboard
 							</Link>
 						</li>
-						<li className="nav-item">
+						{/* <li className="nav-item">
 							<Link className="nav-link" to="/inbox">
 								Inbox
 							</Link>
-						</li>
-						<li className="nav-item">
+						</li> */}
+						{/* <li className="nav-item">
 							<Link
 								className="nav-link"
 								to="/Report/sc-report.html">
 								Report
 							</Link>
-						</li>
-						<li className="nav-item">
+						</li> */}
+						{/* <li className="nav-item">
 							<Link className="nav-link" to="/referral">
 								New Case
 							</Link>
-						</li>
+						</li> */}
 						<li className="nav-item">
 							<Link className="nav-link" to="/demographics">
 								Demographics

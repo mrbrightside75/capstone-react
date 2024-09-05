@@ -65,15 +65,18 @@ const Dashboard = () => {
 							<div className="row">
 								<div className="col folderIcon">
 									<p>
-										<Link to={`/Case`}>📁</Link>
+										{/* /cat is used to demonstrate how to pass parameters. Check the flow {Dashboard.js > DB > Dashboard.js > App.js > Case.js > DB} */}
+										<Link to={`/Case/${caseItem.id}/cat`}>
+											📁
+										</Link>
 									</p>
 								</div>
 							</div>
 							<div className="row">
 								<div className="col">
 									<p className="name">
-										{caseItem.firstname},{" "}
-										{caseItem.lastname}
+										{caseItem.lastname},{" "}
+										{caseItem.firstname}
 									</p>
 								</div>
 							</div>
