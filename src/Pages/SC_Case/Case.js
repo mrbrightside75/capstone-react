@@ -38,7 +38,7 @@ const Case = () => {
 				<div className="row">
 					<div className="col-6">
 						<h3>
-							{caseData.firstname} {caseData.lastname} Case
+							{caseData.firstname} {caseData.lastname}'s Case
 						</h3>
 					</div>
 					<div className="col-6">

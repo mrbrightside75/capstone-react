@@ -34,7 +34,6 @@ const Dashboard = () => {
 				console.error("Error fetching cases:", error);
 			}
 		};
-
 		fetchCases();
 	}, []);
 
