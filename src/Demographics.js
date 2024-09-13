@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Demographics.css";
 import Navbar from "./Components/Navbar";
-
+import backendURL from "./api";
 // This is a test of sourcetree
 const NewChild = () => {
 	const navigate = useNavigate();
@@ -34,7 +34,8 @@ const NewChild = () => {
 		event.preventDefault();
 
 		try {
-			const response = await fetch(`http://localhost:3001/cases`, {
+			let url = backendURL();
+			const response = await fetch(`${url}/cases`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

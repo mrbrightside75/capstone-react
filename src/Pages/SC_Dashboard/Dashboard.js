@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import Navbar from "../../Components/Navbar";
+import backendURL from "../../api";
 
 const formatDate = (dateString) => {
 	const date = new Date(dateString);
@@ -22,7 +23,8 @@ const Dashboard = () => {
 	useEffect(() => {
 		const fetchCases = async () => {
 			try {
-				const response = await fetch("http://localhost:3001/cases");
+				let url = backendURL();
+				const response = await fetch(`${url}/cases`);
 				if (response.ok) {
 					const data = await response.json();
 					setCases(data);

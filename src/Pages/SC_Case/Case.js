@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar";
 import "./Case.css";
+import backendURL from "../../api";
 
 const Case = () => {
 	const { id, animal } = useParams(); // Get the case ID from the URL
@@ -11,9 +12,8 @@ const Case = () => {
 	useEffect(() => {
 		const fetchCaseData = async () => {
 			try {
-				const response = await fetch(
-					`http://localhost:3001/cases/${id}`
-				);
+				let url = backendURL();
+				const response = await fetch(`${url}/cases/${id}`);
 				if (response.ok) {
 					const data = await response.json();
 					setCaseData(data);
