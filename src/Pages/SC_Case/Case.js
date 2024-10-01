@@ -62,6 +62,18 @@ const Case = () => {
 			</header>
 			<div className="row" id="content">
 				<div className="col-3" id="caseMenu">
+					<Link to="/referral">
+						<div className="row caseMenuItem">
+							<div className="col">
+								<h3>Referral</h3>
+							</div>
+							<div className="col-1">
+								<span className="material-icons arrow-icon">
+									chevron_right
+								</span>
+							</div>
+						</div>
+					</Link>
 					<Link to="/case-ifsp">
 						<div className="row caseMenuItem">
 							<div className="col">

@@ -9,8 +9,9 @@ import Case from "./Pages/SC_Case/Case";
 import Inbox from "./Pages/SC_Inbox/Inbox";
 import Case_IFSP from "./Pages/SC_Case/Case_IFSP";
 import CreateAccount from "./Pages/Login/CreateAccount";
-import Referral from "./Pages/Referral/Referral";
+import Referral from "./Pages/Referral/NewReferral";
 import Demographics from "./Demographics";
+import Case_Referral from "./Pages/SC_Case/Case_Referral";
 import Case_Evaluation from "./Pages/SC_Case/Case_Evaluation";
 import Case_SC_Notes from "./Pages/SC_Case/Case_SC_Notes";
 import Case_Records from "./Pages/SC_Case/Case_Records";
@@ -41,6 +42,10 @@ const myRoutes = createBrowserRouter([
 	{
 		path: "/case/:id/:animal",
 		element: <Case />,
+	},
+	{
+		path: "/case/:caseId/referrals",
+		element: <Case_Referral />,
 	},
 	{
 		path: "/case-ifsp",
@@ -79,8 +84,8 @@ const myRoutes = createBrowserRouter([
 		element: <CreateAccount />,
 	},
 	{
-		path: "/referral",
-		element: <Referral />,
+		path: "/newreferral",
+		element: <NewReferral />,
 	},
 	{
 		path: "/inbox",
