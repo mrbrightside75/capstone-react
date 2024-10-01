@@ -56,6 +56,11 @@ const Navbar = () => {
 								Create Account
 							</Link>
 						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/inbox">
+								Inbox
+							</Link>
+						</li>
 					</ul>
 				</div>
 			</div>
