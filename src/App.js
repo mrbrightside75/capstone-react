@@ -9,7 +9,7 @@ import Case from "./Pages/SC_Case/Case";
 import Inbox from "./Pages/SC_Inbox/Inbox";
 import Case_IFSP from "./Pages/SC_Case/Case_IFSP";
 import CreateAccount from "./Pages/Login/CreateAccount";
-import Referral from "./Pages/Referral/NewReferral";
+import NewReferral from "./Pages/Referral/NewReferral";
 import Demographics from "./Demographics";
 import Case_Referral from "./Pages/SC_Case/Case_Referral";
 import Case_Evaluation from "./Pages/SC_Case/Case_Evaluation";
@@ -19,6 +19,8 @@ import Case_Consents_Auths from "./Pages/SC_Case/Case_Consents_Auths";
 import Case_Bill_Insurance from "./Pages/SC_Case/Case_Bill_Insurance";
 import Case_Travel from "./Pages/SC_Case/Case_Travel";
 import Case_CPSE_Transition from "./Pages/SC_Case/Case_CPSE_Transition";
+import AssignServiceCoordinator from "./Pages/SC_Inbox/AssignServiceCoordinator";
+import Validate from "./Pages/SC_Inbox/Validate";
 
 // #3 Set up routes that connect paths to elements, combined they make a route
 //which makes them their own page accessible in the browswer.
@@ -40,11 +42,11 @@ const myRoutes = createBrowserRouter([
 		element: <Inbox />,
 	},
 	{
-		path: "/case/:id/:animal",
+		path: "/case/:caseId/:animal",
 		element: <Case />,
 	},
 	{
-		path: "/case/:caseId/referrals",
+		path: "/:caseId/case_referral",
 		element: <Case_Referral />,
 	},
 	{
@@ -84,7 +86,7 @@ const myRoutes = createBrowserRouter([
 		element: <CreateAccount />,
 	},
 	{
-		path: "/newreferral",
+		path: "/case/:caseId/newreferral",
 		element: <NewReferral />,
 	},
 	{
@@ -94,6 +96,14 @@ const myRoutes = createBrowserRouter([
 	{
 		path: "/demographics",
 		element: <Demographics />,
+	},
+	{
+		path: "/assign/:caseId",
+		element: <AssignServiceCoordinator />,
+	},
+	{
+		path: "/cases/:caseId/validate",
+		element: <Validate />,
 	},
 ]);
 

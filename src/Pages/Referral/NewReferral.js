@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./Referral.css";
+import { useParams } from "react-router-dom";
 import backendURL from "../../api"; // Your backend API URL
 
-const NewReferral = ({ caseId }) => {
+const NewReferral = ({}) => {
 	const [referralDate, setReferralDate] = useState("");
 	const [referralAgency, setReferralAgency] = useState("");
 	const [referralReason, setReferralReason] = useState("");
 	const [error, setError] = useState("");
 	const [successMessage, setSuccessMessage] = useState("");
+	const { caseId } = useParams();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();

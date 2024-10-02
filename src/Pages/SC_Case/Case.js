@@ -5,7 +5,7 @@ import "./Case.css";
 import backendURL from "../../api";
 
 const Case = () => {
-	const { id, animal } = useParams(); // Get the case ID from the URL
+	const { caseId, animal } = useParams(); // Get the case ID from the URL
 	const [caseData, setCaseData] = useState(null);
 	console.log(animal);
 	// Fetch case data when the component mounts
@@ -13,7 +13,7 @@ const Case = () => {
 		const fetchCaseData = async () => {
 			try {
 				let url = backendURL();
-				const response = await fetch(`${url}/cases/${id}`);
+				const response = await fetch(`${url}/cases/${caseId}`);
 				if (response.ok) {
 					const data = await response.json();
 					setCaseData(data);
@@ -26,7 +26,7 @@ const Case = () => {
 		};
 
 		fetchCaseData();
-	}, [id]);
+	}, [caseId]);
 
 	if (!caseData) {
 		return <p>Loading...</p>;
@@ -61,13 +61,13 @@ const Case = () => {
 				</div>
 			</header>
 			<div className="row" id="content">
-				<div className="col-3" id="caseMenu">
-					<Link to="/referral">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Referral</h3>
+				<div className="col-12 col-md-3" id="caseMenu">
+					<Link to={`/${caseId}/case_referral`}>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>Referral</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
@@ -75,11 +75,11 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to="/case-ifsp">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Individual Family Service Plan</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>Individual Family Service Plan</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
@@ -87,11 +87,11 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to="/case-evaluation">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Evaluation</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>Evaluation</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
@@ -99,11 +99,11 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to="/case-sc-notes">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Service Coordinator Notes</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>Service Coordinator Notes</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
@@ -111,11 +111,11 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to="/case-records">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Records</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>Records</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
@@ -123,11 +123,11 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to="/case-consents-auths">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Consents & Authorizations</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>Consents & Authorizations</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
@@ -135,11 +135,11 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to="/case-bill-insurance">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Billing & Insurance</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>Billing & Insurance</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
@@ -147,11 +147,11 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to="/case-travel">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Travel</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>Travel</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
@@ -159,74 +159,92 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to="/case-cpse-transition">
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>CPSE Transition</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>CPSE Transition</h5>
 							</div>
-							<div className="col-1">
+							<div className="col-2 text-end">
 								<span className="material-icons arrow-icon">
 									chevron_right
 								</span>
 							</div>
 						</div>
 					</Link>
+					<Link to={`/case/${caseId}/newreferral`}>
+						<div className="row caseMenuItem">
+							<div className="col">
+								<h3>Add New Referral</h3>
+							</div>
+						</div>
+					</Link>
 				</div>
 				<div className="col-9">
+					{/* Demographic Info Section */}
 					<div className="row">
-						<div className="col-12">
-							<label for="firstname">First Name:</label>
+						<div className="col-4">
+							<label htmlFor="firstname">First Name:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="firstname"
 								name="firstname"
-								value={caseData.firstname}
-								readonly
+								value={caseData.firstname || ""}
+								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of first name */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="lastname">Last Name:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="lastname"
 								name="lastname"
 								value={caseData.lastname || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of Last Name */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="prefix">Prefix:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="prefix"
 								name="prefix"
 								value={caseData.prefix || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of Prefix */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="suffix">Suffix:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="suffix"
 								name="suffix"
 								value={caseData.suffix || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of Suffix */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="dateofbirth">Date of Birth:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="date"
 								id="dateofbirth"
@@ -237,91 +255,103 @@ const Case = () => {
 										: ""
 								}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of DOB */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="gestationalage">
 								Gestational Age:
 							</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="gestationalage"
 								name="gestationalage"
 								value={caseData.gestationalage || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of gestationalage */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="ethnicity">Ethnicity:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="ethnicity"
 								name="ethnicity"
 								value={caseData.ethnicity || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of ethnicity */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="race">Race:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="race"
 								name="race"
 								value={caseData.race || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of race */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="address">Address:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="address"
 								name="address"
 								value={caseData.address || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of address */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="language">Language:</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="language"
 								name="language"
 								value={caseData.language || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of language */}
 					</div>
 					<div className="row">
-						<div className="col-12">
+						<div className="col-4">
 							<label htmlFor="schooldistrict">
 								School District:
 							</label>
+						</div>
+						<div className="col-8">
 							<input
 								type="text"
 								id="schooldistrict"
 								name="schooldistrict"
 								value={caseData.schooldistrict || ""}
 								readOnly
+								className="form-control"
 							/>
 						</div>
-						{/* End of schooldistrict */}
 					</div>
 				</div>
 			</div>

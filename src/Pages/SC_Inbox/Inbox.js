@@ -85,9 +85,17 @@ const Inbox = () => {
 			case "Referral":
 				return <span>No action needed</span>;
 			case "Awaiting Validation":
-				return <button className="btn btn-primary">View</button>;
+				return (
+					<Link to={`/cases/${caseItem.id}/validate`}>
+						<button className="btn btn-primary">View</button>
+					</Link>
+				);
 			case "Validated":
-				return <button className="btn btn-warning">Assign</button>;
+				return (
+					<Link to={`/assign/${caseItem.id}`}>
+						<button className="btn btn-warning">Assign</button>
+					</Link>
+				);
 			case "Assigned":
 			case "Active":
 				return (
