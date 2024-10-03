@@ -1,4 +1,4 @@
-Here is a sample `README.md` for your Early Intervention Case Management project:
+Here is the `README.md` with your updated workflow steps in markdown format:
 
 ---
 
@@ -26,56 +26,58 @@ This is a web-based case management system designed to facilitate the Early Inte
 
 ## Workflow Steps
 
-### Step 1: Logging In
+### Log In
 
-**Action:**
+-   Navigate to the login page.
+-   Enter your username and password (or simply press **Login** for demo purposes).
+-   After logging in, you will be redirected to the **Dashboard**.
 
--   Log in to the system.
+### Check Dashboard for Existing Cases
 
-**Outcome:**
+-   On the Dashboard, review the list of existing cases.
+-   Ensure the case you are about to create is not already listed. You can search by name or DOB.
+-   If the case already exists, follow the appropriate steps to manage it based on its status. If not, proceed to the next step.
 
--   The user is redirected to the dashboard based on their role.
+### Create a New Case
 
-### Step 2: Checking the Dashboard
+-   Navigate to the **New Case** page (accessible via the navigation bar).
+-   Fill out the required demographic information for the new child, such as:
+    -   First Name
+    -   Last Name
+    -   Date of Birth
+    -   Address
+    -   Race, Ethnicity, Language, etc.
+-   Once the form is completed, click **Add Child** to submit the new case.
+-   The new case should now appear on the Dashboard.
 
-**Action:**
+### Generate a New Referral
 
--   Navigate to the dashboard after logging in.
+-   After the case is created, click **View** (on the Dashboard page).
+-   In the case navbar (left side), select **Add New Referral**.
+-   Fill out the necessary referral information, including any notes or additional details.
+-   Submit the referral.
 
-**Outcome:**
+### Validate the Case (Supervisor)
 
--   See a list of cases, filtered by the user's role (e.g., clerical sees referrals, service coordinators see assigned cases).
+-   Navigate to the **Inbox** to see cases that are in the "Awaiting Validation" status.
+-   Log in as a Supervisor or switch to the **Supervisor** role from the role selector.
+-   For each case, click the **View** button to review the details.
+-   If everything is correct, validate the referral. This will change the case status to "Validated" and your role will be reset to "Clerical."
 
-### Step 3: Creating a New Case
+### Assign Service Coordinator (Supervisor)
 
-**Action:**
+-   Log in as a Supervisor or switch to the **Supervisor** role from the role selector.
+-   Once the referral is validated, assign a Service Coordinator to the case.
+-   From the **Inbox**, find the "Validated" cases and click the **Assign** button for the relevant case.
+-   Select a Service Coordinator from the dropdown menu and confirm the assignment.
+-   The case status will update to "Assigned."
 
--   Click on **New Case** and fill in the required demographic details (child’s name, DOB, address, etc.).
+### Accept the Case (Service Coordinator)
 
-**Outcome:**
-
--   A new case is created and is in the "Referral" status.
-
-### Step 4: Generating a New Referral
-
-**Action:**
-
--   After creating a case, generate a referral by entering the referral agency, referral reason, and date.
-
-**Outcome:**
-
--   A referral is created and the case enters the "Awaiting Validation" stage.
-
-### Step 5: Validating, Assigning, and Accepting a Case
-
-**Action:**
-
--   The Supervisor validates the referral and assigns it to a service coordinator.
--   The Service Coordinator accepts the case.
-
-**Outcome:**
-
--   The case status is updated to "Active" and is ready for further action.
+-   Navigate to the **Inbox**, where you’ll find cases that are assigned to the **Service Coordinator** role.
+-   Log in as a Service Coordinator or switch to the **Service Coordinator** role.
+-   For each case, click the **Accept** button to confirm acceptance of the case.
+-   This action updates the case status to "Active," and you can now proceed with Early Intervention services.
 
 ---
 
@@ -98,7 +100,6 @@ To run the project locally, the following dependencies are required:
 -   **React.js**: JavaScript library for building the user interface
 -   **React Router**: For client-side routing
 -   **Bootstrap**: CSS framework for responsive design
--   **Axios**: HTTP client for making API requests
 
 ---
 
@@ -113,29 +114,7 @@ git clone https://github.com/yourusername/case-management-system.git
 cd case-management-system
 ```
 
-### 2. Set up the backend
-
-1. Install the necessary dependencies:
-    ```bash
-    npm install
-    ```
-2. Create a `.env` file in the root directory and specify your database credentials:
-    ```
-    DATABASE_URL=postgres://localhost:5432/capstone
-    ```
-3. Run the migrations and seed data:
-
-    ```bash
-    npx sequelize-cli db:migrate
-    npx sequelize-cli db:seed:all
-    ```
-
-4. Start the backend server:
-    ```bash
-    npm start
-    ```
-
-### 3. Set up the frontend
+### 2. Set up the frontend
 
 1. Navigate to the `client` folder:
 
@@ -221,5 +200,3 @@ cd case-management-system
 This project is licensed under the MIT License.
 
 ---
-
-This README provides a basic overview of the system, its dependencies, and usage instructions, along with a couple of example cases to test the system.
