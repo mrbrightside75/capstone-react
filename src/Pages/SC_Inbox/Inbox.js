@@ -121,7 +121,7 @@ const Inbox = () => {
 		<>
 			<Navbar />
 
-			<div className="inbox-container">
+			<div className="inbox-container" id="inbox">
 				<h2>Inbox</h2>
 				<div className="role-selector">
 					<label htmlFor="role">Select Role:</label>

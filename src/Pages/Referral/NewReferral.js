@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./Referral.css";
 import { useParams } from "react-router-dom";
 import backendURL from "../../api"; // Your backend API URL
+import { useNavigate } from "react-router-dom";
 
 const NewReferral = ({}) => {
+	const navigate = useNavigate();
 	const [referralDate, setReferralDate] = useState("");
 	const [referralAgency, setReferralAgency] = useState("");
 	const [referralReason, setReferralReason] = useState("");
@@ -36,6 +38,7 @@ const NewReferral = ({}) => {
 				setReferralDate("");
 				setReferralAgency("");
 				setReferralReason("");
+				navigate("/dashboard");
 			} else {
 				const errorData = await response.json();
 				setError(errorData.error || "Failed to create referral.");
@@ -86,7 +89,9 @@ const NewReferral = ({}) => {
 						}></textarea>
 				</div>
 
-				<button type="submit">Create Referral</button>
+				<button className="btn btn-primary" type="submit">
+					Create Referral
+				</button>
 			</form>
 		</div>
 	);

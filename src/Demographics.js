@@ -24,15 +24,24 @@ const NewChild = () => {
 	});
 
 	const handleChange = (e) => {
+		const { name, value } = e.target;
+
 		setChildInfo({
 			...childInfo,
-			[e.target.name]: e.target.value,
+			[name]: value === "" ? null : value, // Set null if value is empty
 		});
 		// console.log(childInfo);
 	};
 
 	const createChild = async (event) => {
 		event.preventDefault();
+
+		// Ensure prefix and suffix are set to null if not selected
+		const cleanedChildInfo = {
+			...childInfo,
+			prefix: childInfo.prefix === "" ? null : childInfo.prefix,
+			suffix: childInfo.suffix === "" ? null : childInfo.suffix,
+		};
 
 		try {
 			let url = backendURL();
@@ -41,11 +50,11 @@ const NewChild = () => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(childInfo),
+				body: JSON.stringify(cleanedChildInfo),
 			});
 
 			if (response.ok) {
-				navigate("/");
+				navigate("/dashboard");
 			} else {
 				console.error("Failed to create a new case.");
 			}
@@ -57,14 +66,14 @@ const NewChild = () => {
 	return (
 		<>
 			<Navbar />
-			<div className="container">
+			<div className="container" id="demographics">
 				<h1>Add New Child</h1>
 				<hr />
 				<form onSubmit={createChild}>
 					{/* First Name */}
 					<div className="mb-3">
 						<label htmlFor="firstname" className="form-label">
-							First Name
+							First Name <span style={{ color: "red" }}>*</span>
 						</label>
 						<input
 							type="text"
@@ -73,6 +82,7 @@ const NewChild = () => {
 							name="firstname"
 							value={childInfo.firstname}
 							onChange={handleChange}
+							required
 						/>
 					</div>
 					{/* Middle Name */}
@@ -92,7 +102,7 @@ const NewChild = () => {
 					{/* Last Name */}
 					<div className="mb-3">
 						<label htmlFor="lastname" className="form-label">
-							Last Name
+							Last Name <span style={{ color: "red" }}>*</span>
 						</label>
 						<input
 							type="text"
@@ -101,6 +111,7 @@ const NewChild = () => {
 							name="lastname"
 							value={childInfo.lastname}
 							onChange={handleChange}
+							required
 						/>
 					</div>
 					{/* Prefix */}
@@ -174,7 +185,8 @@ const NewChild = () => {
 					{/* DOB */}
 					<div className="mb-3">
 						<label htmlFor="dateofbirth" className="form-label">
-							Date of Birth
+							Date of Birth{" "}
+							<span style={{ color: "red" }}>*</span>
 						</label>
 						<input
 							type="date"
@@ -183,6 +195,7 @@ const NewChild = () => {
 							name="dateofbirth"
 							value={childInfo.dateofbirth}
 							onChange={handleChange}
+							required
 						/>
 					</div>
 					{/* Gestational Age */}
@@ -255,7 +268,8 @@ const NewChild = () => {
 					{/* Ethnicity */}
 					<div className="mb-3">
 						<label htmlFor="ethnicity" className="form-label">
-							Ethnicity (U.S. Federally Recognized)
+							Ethnicity (U.S. Federally Recognized){" "}
+							<span style={{ color: "red" }}>*</span>
 						</label>
 						{/* <input
 						type="text"
@@ -270,7 +284,8 @@ const NewChild = () => {
 							id="ethnicity"
 							name="ethnicity"
 							value={childInfo.ethnicity}
-							onChange={handleChange}>
+							onChange={handleChange}
+							required>
 							<option value="">-- Select an ethnicity --</option>
 							<option value="Hispanic or Latino">
 								Hispanic or Latino
@@ -283,7 +298,8 @@ const NewChild = () => {
 					{/* Race */}
 					<div className="mb-3">
 						<label htmlFor="race" className="form-label">
-							Race (U.S. Federally Recognized)
+							Race (U.S. Federally Recognized){" "}
+							<span style={{ color: "red" }}>*</span>
 						</label>
 						{/* <input
 						type="text"
@@ -298,7 +314,8 @@ const NewChild = () => {
 							id="race"
 							name="race"
 							value={childInfo.race}
-							onChange={handleChange}>
+							onChange={handleChange}
+							required>
 							<option value="">-- Select a race --</option>
 							<option value="White">White</option>
 							<option value="Black or African American">
@@ -316,7 +333,8 @@ const NewChild = () => {
 					{/* Address */}
 					<div className="mb-3">
 						<label htmlFor="address" className="form-label">
-							Child Address
+							Child Address{" "}
+							<span style={{ color: "red" }}>*</span>
 						</label>
 						<input
 							type="text"
@@ -325,12 +343,14 @@ const NewChild = () => {
 							name="address"
 							value={childInfo.address}
 							onChange={handleChange}
+							required
 						/>
 					</div>
 					{/* Language */}
 					<div className="mb-3">
 						<label htmlFor="language" className="form-label">
-							Child Language (U.S. Federally Recognized)
+							Child Language (U.S. Federally Recognized){" "}
+							<span style={{ color: "red" }}>*</span>
 						</label>
 						{/* <input
 						type="text"
@@ -345,7 +365,8 @@ const NewChild = () => {
 							id="language"
 							name="language"
 							value={childInfo.language}
-							onChange={handleChange}>
+							onChange={handleChange}
+							required>
 							<option value="">-- Select a language --</option>
 							<option value="English">English</option>
 							<option value="Spanish">Spanish</option>
@@ -384,7 +405,8 @@ const NewChild = () => {
 					{/* School District */}
 					<div className="mb-3">
 						<label htmlFor="schooldistrict" className="form-label">
-							School District (Onondaga County)
+							School District (Onondaga County){" "}
+							<span style={{ color: "red" }}>*</span>
 						</label>
 						{/* <input
 						type="text"
@@ -399,7 +421,8 @@ const NewChild = () => {
 							id="schooldistrict"
 							name="schooldistrict"
 							value={childInfo.schooldistrict}
-							onChange={handleChange}>
+							onChange={handleChange}
+							required>
 							<option value="">
 								-- Select a school district --
 							</option>

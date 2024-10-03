@@ -1,66 +1,67 @@
 :root {
-    --haiti: #0b132b;
-    --cloudBurst: #1c2541;
-    --fiord: #3a506b;
-    --fountainBlue: #5bc0be;
-    --darkFountainBlue: #407a79;
-  }
-  body {
-    min-height: 100vh;
-    background-color: var(--fiord);
-    color: var(--fiord);
-  }
-  .btn-custom {
-    background-color: var(--fountainBlue);
-    color: black;
-    font-weight: bold;
-  }
-  .btn-custom:hover {
-    background-color: var(--darkFountainBlue);
-  }
-  #topRowSpacer {
-    height: 60px;
-  }
-  #loginForm {
-    background-color: white;
-    border: 5px solid var(--cloudBurst);
-    border-radius: 25px;
-    padding: 10px;
-    header {
-      text-align: center;
-      h1 {
-        margin-top: 20px;
-        font-weight: bold;
-        font-size: 30px;
-        color:#0b132b
-      }
-      hr {
-        border: 3px solid var(--fountainBlue);
-        opacity: 1;
-      }
-    }
-    #authInput {
-      margin-bottom: 35px;
-      h5 {
-        padding: 0px;
-        margin-bottom: 15px;
-      }
-    }
-    #loginButton {
-      margin-bottom: 25px;
-      button {
-        background-color: var(--fountainBlue);
-        border-radius: 10px;
-        width: 100%;
-      }
-    }
-    #forgotPassword {
-      color: var(--fountainBlue);
-      text-decoration: underline;
-      margin-bottom: 35px;
-      :hover {
-        color: var(--darkFountainBlue);
-      }
-    }
-  }
-  
+	--haiti: #0b132b;
+	--cloudBurst: #1c2541;
+	--fiord: #3a506b;
+	--fountainBlue: #5bc0be;
+	--darkFountainBlue: #407a79;
+}
+#login {
+	body {
+		min-height: 100vh;
+		background-color: var(--fiord);
+		color: var(--fiord);
+	}
+	.btn-custom {
+		background-color: var(--fountainBlue);
+		color: black;
+		font-weight: bold;
+	}
+	.btn-custom:hover {
+		background-color: var(--darkFountainBlue);
+	}
+	#topRowSpacer {
+		height: 60px;
+	}
+	#loginForm {
+		background-color: white;
+		border: 5px solid var(--cloudBurst);
+		border-radius: 25px;
+		padding: 10px;
+		header {
+			text-align: center;
+			h1 {
+				margin-top: 20px;
+				font-weight: bold;
+				font-size: 30px;
+				color: #0b132b;
+			}
+			hr {
+				border: 3px solid var(--fountainBlue);
+				opacity: 1;
+			}
+		}
+		#authInput {
+			margin-bottom: 35px;
+			h5 {
+				padding: 0px;
+				margin-bottom: 15px;
+			}
+		}
+		#loginButton {
+			margin-bottom: 25px;
+			button {
+				background-color: var(--fountainBlue);
+				border-radius: 10px;
+				width: 100%;
+			}
+		}
+		#forgotPassword {
+			color: var(--fountainBlue);
+			text-decoration: underline;
+			margin-bottom: 35px;
+			:hover {
+				color: var(--darkFountainBlue);
+			}
+		}
+	}
+}

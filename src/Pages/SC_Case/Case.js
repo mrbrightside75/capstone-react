@@ -40,23 +40,7 @@ const Case = () => {
 							{caseData.firstname} {caseData.lastname}'s Case
 						</h3>
 					</div>
-					<div className="col-6">
-						<div className="row">
-							<div
-								className="col d-flex justify-content-center"
-								id="search">
-								<input type="text" placeholder="Search" />
-							</div>
-						</div>
-						<div className="row" id="filterSort">
-							<div className="col">
-								<a>Filter</a>
-							</div>
-							<div className="col d-flex justify-content-end">
-								<a>Sort</a>
-							</div>
-						</div>
-					</div>
+					<div className="col-6"></div>
 				</div>
 			</header>
 			<div className="row" id="content">
@@ -170,9 +154,14 @@ const Case = () => {
 						</div>
 					</Link>
 					<Link to={`/case/${caseId}/newreferral`}>
-						<div className="row caseMenuItem">
-							<div className="col">
-								<h3>Add New Referral</h3>
+						<div className="row caseMenuItem align-items-center py-2">
+							<div className="col-10">
+								<h5>New Referral</h5>
+							</div>
+							<div className="col-2 text-end">
+								<span className="material-icons arrow-icon">
+									chevron_right
+								</span>
 							</div>
 						</div>
 					</Link>

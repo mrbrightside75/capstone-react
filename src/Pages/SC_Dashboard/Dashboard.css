@@ -5,59 +5,64 @@
 	--fountainBlue: #5bc0be;
 	--darkFountainBlue: #407a79;
 }
-.container-fluid {
-	padding: 0px;
-	background-color: var(--fiord);
-}
-h2 {
-	color: white !important;
-	font-weight: bold;
-	margin-left: 15px;
-}
-header {
-	padding: 5px;
-	margin-top: 15px;
-	color: white;
-	font-weight: bold;
-}
-#content {
-	padding: 18px;
-}
-#demographicMenu {
-	padding: 5px;
-	background-color: white;
-	margin-bottom: 10px;
-}
-#caseSearch {
-	width: 75%;
-}
-.material-symbols-outlined {
-	margin: auto;
-}
-.whiteWindow {
-	background-color: white;
-	padding: 10px;
-	.folderIcon {
-		text-align: center;
-		font-size: 150px;
-		margin-bottom: 0%;
-		a {
-			text-decoration: none;
+#dashboard {
+	.container-fluid {
+		padding: 0px;
+		background-color: var(--fiord);
+	}
+	h2 {
+		color: white !important;
+		font-weight: bold;
+		margin-left: 15px;
+	}
+	strong {
+		color: black;
+	}
+	header {
+		padding: 5px;
+		margin-top: 15px;
+		color: white;
+		font-weight: bold;
+	}
+	#content {
+		padding: 18px;
+	}
+	#demographicMenu {
+		padding: 5px;
+		background-color: white;
+		margin-bottom: 10px;
+	}
+	#caseSearch {
+		width: 75%;
+	}
+	.material-symbols-outlined {
+		margin: auto;
+	}
+	.whiteWindow {
+		background-color: white;
+		padding: 10px;
+		.folderIcon {
+			text-align: center;
+			font-size: 150px;
+			margin-bottom: 0%;
+			a {
+				text-decoration: none;
+			}
+		}
+		.folderIcon :hover {
+			font-size: 180px;
+		}
+		.name {
+			text-align: center;
+			font-weight: bold;
+			font-size: 40px;
 		}
 	}
-	.folderIcon :hover {
-		font-size: 180px;
-	}
-	.name {
-		text-align: center;
+	.list-item {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-top: solid black 1px;
+		margin-bottom: 5px;
 		font-weight: bold;
-		font-size: 40px;
 	}
-}
-.list-item {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	border-top: solid black 1px;
-	margin-bottom: 5px;
-	font-weight: bold;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import backendURL from "../../api"; // Adjust the import path as needed
+import "./AssignServiceCoordinator";
 
 const AssignServiceCoordinator = () => {
 	const { caseId } = useParams(); // Get the caseId from the URL params
@@ -55,8 +56,8 @@ const AssignServiceCoordinator = () => {
 	};
 
 	return (
-		<div className="assignment-container">
-			<h2>Assign Service Coordinator</h2>
+		<div className="assignment-container" id="assignServiceCoordinator">
+			<h2 id="assignHeader">Assign Service Coordinator</h2>
 			{error && <p className="error">{error}</p>}
 			<div className="form-group">
 				<label htmlFor="serviceCoordinator">
@@ -74,7 +75,9 @@ const AssignServiceCoordinator = () => {
 					))}
 				</select>
 			</div>
-			<button onClick={handleAssign}>Assign Service Coordinator</button>
+			<button className="btn btn-primary" onClick={handleAssign}>
+				Assign Service Coordinator
+			</button>
 		</div>
 	);
 };

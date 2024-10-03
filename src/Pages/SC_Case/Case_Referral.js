@@ -38,23 +38,42 @@ const Case_Referral = () => {
 	if (error) return <p>Error: {error}</p>;
 
 	return (
-		<div className="referrals-container">
+		<div className="referrals-container" id="referral">
 			<h2>Referrals for Case ID: {caseId}</h2>
 
 			{/* Display referrals if available */}
 			{referrals.length > 0 ? (
-				<ul>
-					{referrals.map((referral) => (
-						<li key={referral.id}>
-							<strong>Referral ID:</strong> {referral.id} <br />
-							<strong>Date:</strong>{" "}
-							{new Date(referral.date).toLocaleDateString()}{" "}
-							<br />
-							<strong>Status:</strong> {referral.status} <br />
-							<strong>Notes:</strong> {referral.notes}
-						</li>
-					))}
-				</ul>
+				<div className="container">
+					<div className="row">
+						{referrals.map((referral) => (
+							<div className="col-md-6 mb-4" key={referral.id}>
+								<div className="card h-100">
+									<div className="card-body">
+										<h5 className="card-title">
+											Referral ID: {referral.id}
+										</h5>
+										<div className="row">
+											<div className="col-6">
+												<p className="card-text">
+													<strong>Date:</strong>{" "}
+													{referral.referralDate}
+												</p>
+											</div>
+
+											<div className="col-12">
+												<p className="card-text">
+													<strong>Notes:</strong>{" "}
+													{referral.referralReason ||
+														"No notes available"}
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
 			) : (
 				<p>No referrals found for this case.</p>
 			)}
@@ -62,9 +81,13 @@ const Case_Referral = () => {
 			{/* Always display the "Add New Referral" button */}
 			<Link to={`/case/${caseId}/newreferral`}>
 				<div className="row caseMenuItem">
-					<div className="col">
-						<h3>Add New Referral</h3>
+					<div className="col-5">{/* Spacer */}</div>
+					<div className="col-3">
+						<button className="btn btn-primary">
+							New Referral
+						</button>
 					</div>
+					<div className="col">{/* Spacer */}</div>
 				</div>
 			</Link>
 		</div>

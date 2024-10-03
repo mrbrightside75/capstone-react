@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import backendURL from "../../api"; // Adjust the path as needed
+import "./Validate.css";
 
 const Validate = () => {
 	const { caseId } = useParams(); // Get the caseId from the URL params
@@ -81,7 +82,7 @@ const Validate = () => {
 	}
 
 	return (
-		<div className="validate-container">
+		<div className="validate-container" id="validate">
 			<h2>Validate Case</h2>
 			{error && <p className="error">{error}</p>}
 			<h3>Case Demographic Information</h3>
@@ -89,7 +90,10 @@ const Validate = () => {
 				<strong>First Name:</strong> {caseData.firstname} <br />
 				<strong>Last Name:</strong> {caseData.lastname} <br />
 				<strong>Date of Birth:</strong>{" "}
-				{new Date(caseData.dateofbirth).toLocaleDateString()} <br />
+				{caseData.dateofbirth
+					? caseData.dateofbirth.substring(0, 10)
+					: ""}{" "}
+				<br />
 				<strong>Address:</strong> {caseData.address} <br />
 				<strong>Ethnicity:</strong> {caseData.ethnicity} <br />
 				<strong>Race:</strong> {caseData.race}

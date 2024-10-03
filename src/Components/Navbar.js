@@ -48,14 +48,10 @@ const Navbar = () => {
 						</li> */}
 						<li className="nav-item">
 							<Link className="nav-link" to="/demographics">
-								Demographics
+								New Case
 							</Link>
 						</li>
-						<li className="nav-item">
-							<Link className="nav-link" to="/createAccount">
-								Create Account
-							</Link>
-						</li>
+
 						<li className="nav-item">
 							<Link className="nav-link" to="/inbox">
 								Inbox

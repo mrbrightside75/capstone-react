@@ -4,14 +4,14 @@ import "./Dashboard.css";
 import Navbar from "../../Components/Navbar";
 import backendURL from "../../api";
 
-const formatDate = (dateString) => {
-	const date = new Date(dateString);
-	return date.toLocaleDateString("en-US", {
-		month: "2-digit",
-		day: "2-digit",
-		year: "numeric",
-	});
-};
+// const formatDate = (dateString) => {
+// 	const date = new Date(dateString);
+// 	return date.toLocaleDateString("en-US", {
+// 		month: "2-digit",
+// 		day: "2-digit",
+// 		year: "numeric",
+// 	});
+// };
 
 const Dashboard = () => {
 	const [cases, setCases] = useState([]);
@@ -63,7 +63,7 @@ const Dashboard = () => {
 	}, [searchQuery, cases]);
 
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid" id="dashboard">
 			<Navbar />
 			<header>
 				<div className="row">
@@ -168,7 +168,12 @@ const Dashboard = () => {
 										{caseItem.lastname}
 									</div>
 									<div className="col-3">
-										{formatDate(caseItem.dateofbirth)}
+										{caseItem.dateofbirth
+											? caseItem.dateofbirth.substring(
+													0,
+													10
+											  )
+											: ""}
 									</div>
 									<div className="col-3">
 										<Link to={`/Case/${caseItem.id}`}>
