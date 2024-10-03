@@ -142,19 +142,28 @@ const Inbox = () => {
 				{/* List view */}
 				<div className="list-view">
 					<div className="row list-header">
-						<div className="col-2">
+						<div className="col-2 d-flex flex-column justify-content-end">
 							<strong>First Name</strong>
 						</div>
-						<div className="col-2">
+						<div className="col-2 d-flex flex-column justify-content-end">
 							<strong>Last Name</strong>
 						</div>
-						<div className="col-2">
-							<strong>Date of Birth</strong>
+						<div className="col-2 d-flex flex-column justify-content-end">
+							<div className="row">
+								<div className="col">
+									<p>(YYYY-MM-DD)</p>
+								</div>
+							</div>
+							<div className="row">
+								<div className="col">
+									<strong>Date of Birth</strong>
+								</div>
+							</div>
 						</div>
-						<div className="col-2">
+						<div className="col-2 d-flex flex-column justify-content-end">
 							<strong>Status</strong>
 						</div>
-						<div className="col-4">
+						<div className="col-4 d-flex flex-column justify-content-end">
 							<strong>Actions</strong>
 						</div>
 					</div>
@@ -167,7 +176,10 @@ const Inbox = () => {
 								</div>
 								<div className="col-2">{caseItem.lastname}</div>
 								<div className="col-2">
-									{formatDate(caseItem.dateofbirth)}
+									{" "}
+									{caseItem.dateofbirth
+										? caseItem.dateofbirth.substring(0, 10)
+										: ""}{" "}
 								</div>
 								<div className="col-2">{caseItem.status}</div>
 								<div className="col-4">

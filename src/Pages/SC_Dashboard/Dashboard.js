@@ -153,7 +153,16 @@ const Dashboard = () => {
 									<strong>Last Name</strong>
 								</div>
 								<div className="col-3">
-									<strong>Date of Birth</strong>
+									<div className="row">
+										<div className="col">
+											<strong>Date of Birth</strong>
+										</div>
+									</div>
+									<div className="row">
+										<div className="col">
+											<strong>(YYYY-MM-DD)</strong>
+										</div>
+									</div>
 								</div>
 								<div className="col-3">
 									<strong>Actions</strong>

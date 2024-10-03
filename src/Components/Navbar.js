@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+
 const Navbar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg bg-dark">
+		<nav className="navbar navbar-expand-lg" id="nav">
 			<div className="container-fluid">
 				<button
 					className="navbar-toggler"
@@ -17,45 +18,37 @@ const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<Link className="nav-link" to="/">
-								Home
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link
-								className="nav-link active"
-								aria-current="page"
-								to="/dashboard">
-								My Dashboard
-							</Link>
-						</li>
-						{/* <li className="nav-item">
-							<Link className="nav-link" to="/inbox">
-								Inbox
-							</Link>
-						</li> */}
-						{/* <li className="nav-item">
-							<Link
+							<NavLink
 								className="nav-link"
-								to="/Report/sc-report.html">
-								Report
-							</Link>
-						</li> */}
-						{/* <li className="nav-item">
-							<Link className="nav-link" to="/referral">
-								New Case
-							</Link>
-						</li> */}
-						<li className="nav-item">
-							<Link className="nav-link" to="/demographics">
-								New Case
-							</Link>
+								exact
+								to="/"
+								activeClassName="active">
+								Home
+							</NavLink>
 						</li>
-
 						<li className="nav-item">
-							<Link className="nav-link" to="/inbox">
+							<NavLink
+								className="nav-link"
+								to="/dashboard"
+								activeClassName="active">
+								My Dashboard
+							</NavLink>
+						</li>
+						<li className="nav-item">
+							<NavLink
+								className="nav-link"
+								to="/demographics"
+								activeClassName="active">
+								New Case
+							</NavLink>
+						</li>
+						<li className="nav-item">
+							<NavLink
+								className="nav-link"
+								to="/inbox"
+								activeClassName="active">
 								Inbox
-							</Link>
+							</NavLink>
 						</li>
 					</ul>
 				</div>
