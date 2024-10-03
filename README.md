@@ -1,5 +1,3 @@
-Here is the `README.md` with your updated workflow steps in markdown format:
-
 ---
 
 # Early Intervention Case Management System
