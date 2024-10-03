@@ -1,3 +1,11 @@
-body {
-	color: red;
+/* body {
+	color: white;
+} */
+.list-item {
+	padding-left: 10%;
+	background-color: white;
+}
+strong {
+	margin-left: 10px;
+	color: white;
 }

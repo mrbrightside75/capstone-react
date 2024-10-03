@@ -42,7 +42,7 @@ const myRoutes = createBrowserRouter([
 		element: <Inbox />,
 	},
 	{
-		path: "/case/:caseId/:animal",
+		path: "/case/:caseId",
 		element: <Case />,
 	},
 	{
@@ -62,7 +62,7 @@ const myRoutes = createBrowserRouter([
 		element: <Case_SC_Notes />,
 	},
 	{
-		path: "/case-records",
+		path: "/case-records/:caseId",
 		element: <Case_Records />,
 	},
 	{

@@ -54,6 +54,28 @@ const Validate = () => {
 		}
 	};
 
+	// Handle case acceptance
+	const handleAccept = async () => {
+		try {
+			const url = backendURL();
+			const response = await fetch(`${url}/cases/${caseId}/status`, {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ status: "Active" }),
+			});
+
+			if (response.ok) {
+				navigate("/inbox"); // Redirect to the inbox after accepting
+			} else {
+				setError("Failed to accept case.");
+			}
+		} catch (error) {
+			setError("An error occurred while accepting the case.");
+		}
+	};
+
 	if (!caseData || !referralData) {
 		return <p>Loading...</p>;
 	}
@@ -62,7 +84,6 @@ const Validate = () => {
 		<div className="validate-container">
 			<h2>Validate Case</h2>
 			{error && <p className="error">{error}</p>}
-
 			<h3>Case Demographic Information</h3>
 			<p>
 				<strong>First Name:</strong> {caseData.firstname} <br />
@@ -73,7 +94,6 @@ const Validate = () => {
 				<strong>Ethnicity:</strong> {caseData.ethnicity} <br />
 				<strong>Race:</strong> {caseData.race}
 			</p>
-
 			<h3>Referral Information</h3>
 			<p>
 				<strong>Referral Date:</strong>{" "}
@@ -84,9 +104,16 @@ const Validate = () => {
 				<strong>Referral Reason:</strong> {referralData.referralReason}
 			</p>
 
-			<button onClick={handleValidate} className="btn btn-success">
-				Validate
-			</button>
+			{/* Conditional rendering for Validate or Accept button */}
+			{caseData.status === "Awaiting Validation" ? (
+				<button onClick={handleValidate} className="btn btn-success">
+					Validate
+				</button>
+			) : (
+				<button onClick={handleAccept} className="btn btn-success">
+					Accept
+				</button>
+			)}
 		</div>
 	);
 };

@@ -97,6 +97,11 @@ const Inbox = () => {
 					</Link>
 				);
 			case "Assigned":
+				return (
+					<Link to={`/cases/${caseItem.id}/validate`}>
+						<button className="btn btn-primary">Accept</button>
+					</Link>
+				);
 			case "Active":
 				return (
 					<Link to={`/Case/${caseItem.id}`}>

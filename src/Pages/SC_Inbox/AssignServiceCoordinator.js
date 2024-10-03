@@ -40,6 +40,7 @@ const AssignServiceCoordinator = () => {
 				},
 				body: JSON.stringify({
 					serviceCoordinatorId: selectedCoordinator, // Assign the selected service coordinator
+					status: "Assigned",
 				}),
 			});
 

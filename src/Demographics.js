@@ -20,6 +20,7 @@ const NewChild = () => {
 		address: "",
 		language: "",
 		schooldistrict: "",
+		status: "Referral",
 	});
 
 	const handleChange = (e) => {

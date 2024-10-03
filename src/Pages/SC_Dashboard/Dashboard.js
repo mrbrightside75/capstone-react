@@ -125,7 +125,7 @@ const Dashboard = () => {
 										<div className="col folderIcon">
 											<p>
 												<Link
-													to={`/Case/${caseItem.id}/cat`}>
+													to={`/Case/${caseItem.id}`}>
 													📁
 												</Link>
 											</p>
@@ -171,7 +171,7 @@ const Dashboard = () => {
 										{formatDate(caseItem.dateofbirth)}
 									</div>
 									<div className="col-3">
-										<Link to={`/Case/${caseItem.id}/cat`}>
+										<Link to={`/Case/${caseItem.id}`}>
 											View
 										</Link>
 									</div>

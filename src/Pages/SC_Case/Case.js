@@ -5,9 +5,8 @@ import "./Case.css";
 import backendURL from "../../api";
 
 const Case = () => {
-	const { caseId, animal } = useParams(); // Get the case ID from the URL
+	const { caseId } = useParams(); // Get the case ID from the URL
 	const [caseData, setCaseData] = useState(null);
-	console.log(animal);
 	// Fetch case data when the component mounts
 	useEffect(() => {
 		const fetchCaseData = async () => {
@@ -32,7 +31,7 @@ const Case = () => {
 		return <p>Loading...</p>;
 	}
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid" id="case">
 			<Navbar />
 			<header>
 				<div className="row">
@@ -110,7 +109,7 @@ const Case = () => {
 							</div>
 						</div>
 					</Link>
-					<Link to="/case-records">
+					<Link to={`/case-records/${caseId}`}>
 						<div className="row caseMenuItem align-items-center py-2">
 							<div className="col-10">
 								<h5>Records</h5>

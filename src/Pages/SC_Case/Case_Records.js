@@ -1,46 +1,70 @@
-import { Link } from "react-router-dom";
-import Navbar from "../../Components/Navbar";
-import "./Case_IFSP.css";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import backendURL from "../../api"; // Adjust the import path as needed
 
 const Case_Records = () => {
+	const { caseId } = useParams(); // Get the caseId from the URL params
+	const [fileUrl, setFileUrl] = useState(null); // State to hold the file URL
+	const [error, setError] = useState(null);
+
+	// Fetch the file (PDF) associated with the case
+	useEffect(() => {
+		const fetchFile = async () => {
+			try {
+				const url = backendURL();
+				const response = await fetch(`${url}/cases/${caseId}/files`);
+				if (!response.ok) {
+					throw new Error("Failed to fetch files");
+				}
+				const files = await response.json();
+
+				if (files.length > 0) {
+					const fileData = files[0]; // Assuming you're using the first file
+
+					// Convert the buffer data into a Blob
+					const blob = new Blob(
+						[new Uint8Array(fileData.data.data)],
+						{
+							type: "application/pdf",
+						}
+					);
+
+					// Create an object URL for the Blob
+					const fileUrl = URL.createObjectURL(blob);
+					setFileUrl(fileUrl);
+				} else {
+					throw new Error("No files available");
+				}
+			} catch (err) {
+				setError(err.message);
+			}
+		};
+
+		fetchFile();
+	}, [caseId]);
+
+	if (error) {
+		return <p>Error: {error}</p>;
+	}
+
+	if (!fileUrl) {
+		return <p>Loading file...</p>;
+	}
+
 	return (
-		<div className="container-fluid" id="case_ifsp">
-			<Navbar />
-			<div id="header" className="row">
-				<div className="col">
-					<h1 id="pageTitle">RECORDS</h1>
+		<div className="case-records-container">
+			<h2>Case Records for Case ID: {caseId}</h2>
+
+			{/* Display the PDF inline */}
+			{fileUrl && (
+				<div className="pdf-viewer">
+					<iframe
+						src={fileUrl}
+						width="100%"
+						height="600px"
+						title="Case PDF"></iframe>
 				</div>
-				{/* End of header section */}
-			</div>
-			<div className="row">
-				<div className="col-6">
-					<div className="row">
-						<div className="col-8">
-							<h2>ADD NEW IFSP:</h2>
-						</div>
-						<div className="col-4">
-							<button className="btn btn-primary">ADD</button>
-						</div>
-					</div>
-				</div>
-				{/* End of file picker */}
-			</div>
-			<div className="row">
-				<div className="col">
-					<div className="row">ACTIVE IFSP</div>
-					<div className="row fileSection">
-						<div className="col-2">
-							<h3>FILE:</h3>
-						</div>
-						<div className="col-7">
-							<p>SMITH_JOHN.pdf</p>
-						</div>
-						<div className="col-3">
-							<button className="btn btn-primary">View</button>
-						</div>
-					</div>
-				</div>
-			</div>
+			)}
 		</div>
 	);
 };
